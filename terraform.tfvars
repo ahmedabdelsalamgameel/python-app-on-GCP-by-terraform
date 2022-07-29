@@ -1,0 +1,6 @@
+region = "europe-west1"
+vpc_name = "vpc-network"
+manage_subnet_name = "management-subnet"
+rest_subnet_name = "restricted-subnet"
+manage_subnet_cidr = "10.0.0.0/24"
+rest_subnet_cidr = "10.0.1.0/24"

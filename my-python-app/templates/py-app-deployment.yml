@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: new-python-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-app
+  template:
+    metadata:
+      labels:
+        app: py-app
+    spec:
+      containers:
+        - name: python-application
+          image: ahmedabdelsalam19/devops-challenge
+          ports:
+            - containerPort: 8000
+          env:
+          - name: REDIS_PORT
+            value: "6379"
+          

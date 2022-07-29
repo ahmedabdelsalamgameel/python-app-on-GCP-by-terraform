@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-application
+  labels:
+    name: py-app
+
+spec:
+  template:
+    metadata:
+      labels:
+        name: py-app
+
+    spec:
+      containers:
+        - name: app-container
+          image: us-central1-docker.pkg.dev/abdelsalam-billing-account/gcp-task/task-image
+          env:
+            - name: REDIS_HOST
+              value: redis_service.default.svc.cluster.local
+          containerPort:
+            - port : 8000    
+  replicas: 3
+  selector:
+    matchLabels:
+      name: py-app
+  
